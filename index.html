@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Story ❤️</title><style>
+/* GLOBAL FIX */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: #111;
+  color: #eee;
+}
+
+/* HERO FIXED */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 80px;
+  text-align: center;
+  background: url('your-image.jpg') center/cover no-repeat;
+  color: white;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 1;
+}
+
+#themeToggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10000;
+}
+
+.love-note{
+  max-width:900px;
+  margin:40px auto;
+  padding:30px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff,#f7f7f7);
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  font-size:18px;
+  line-height:1.6;
+  text-align:center;
+}
+
+body.dark .love-note{
+  background:#1b1b1b;
+}
+
+.gallery {
+  padding: 40px 20px;
+}
+
+.memory-horizontal {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.memory-horizontal img,
+.memory-horizontal video {
+  width: 85vw;
+  max-height: 85vh;
+  object-fit: cover;
+  border-radius: 16px;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* SECRET LOGIN BOX */
+.secret-box{
+  max-width:420px;
+  margin:50px auto;
+  padding:28px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff,#f4f4f4);
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  text-align:center;
+}
+
+body.dark .secret-box{background:#1b1b1b;}
+
+.secret-box input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
+  font-size:16px;
+}
+
+.secret-box button{
+  padding:12px 24px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.hidden-message{
+  display:none;
+  margin-top:20px;
+}
+
+.hidden-message img{
+  width:100%;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+.canva-embed-full {
+  padding: 0;
+  margin: 0;
+}
+
+.canva-full {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  display: block;
+}
+
+.video-memory video {
+  width: 85vw;
+  max-height: 85vh;
+  border-radius: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  color: #ff4d6d;
+  font-size: 22px;
+  animation: floatUp 4s linear forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero { height: 70vh; }
+}
+</style></head><body class="dark">
+<button id="themeToggle">☀️</button><header class="hero">
+  <h1>Our Journey ❤️</h1>
+  <p>Every moment with you becomes my favorite memory.</p>
+</header><section class="love-note">
+<p>
+With you, even the smallest moments feel deeply special ❤️ You fill my life with warmth, happiness, and so much love. Every day with you becomes a memory I truly treasure. I love how our hearts connect, laugh, and dream together. Being with you makes my world feel full, peaceful, and beautiful. 💖
+</p>
+</section><section class="gallery">
+  <h2>Memories ❤️</h2>
+  <div class="memory-horizontal">
+    <img src="photo1.jpg" />
+    <img src="photo2.jpg" />
+    <img src="photo3.jpg" />
+  </div>
+</section><section class="secret-box">
+<h2>Private Memory ❤️</h2>
+<input id="username" placeholder="Username" />
+<input id="password" type="password" placeholder="Password" />
+<button onclick="checkLove()">Unlock</button><div class="hidden-message" id="secretMsg">
+<p>
+No matter where life takes us, you will always be my favorite place. ❤️
+</p>
+<div class="memory-horizontal">
+  <img src="hidden-memory1.jpg" alt="Private Memory 1" />
+  <img src="hidden-memory2.jpg" alt="Private Memory 2" />
+  <img src="hidden-memory3.jpg" alt="Private Memory 3" />
+</div>
+</div>
+</section><section class="canva-embed-full">
+  <h2 style="text-align:center">Something I Made For You ❤️</h2>
+  <iframe class="canva-full"
+    src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
+    allowfullscreen>
+  </iframe>
+</section><section class="video-memory">
+  <h2 style="padding-left:20px">More Memories ❤️</h2>
+  <div class="memory-horizontal">
+    <video src="memory-video.mp4" controls></video>
+    <video src="video2.mp4" controls></video>
+    <video src="video3.mp4" controls></video>
+  </div>
+</section><footer>
+Made with ❤️ just for you
+</footer><script>
+// Theme toggle
+const toggle = document.getElementById('themeToggle');
+toggle.onclick = () => {
+  document.body.classList.toggle('dark');
+  toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+};
+
+// Secret login check
+function checkLove(){
+  const u=document.getElementById('username').value.trim();
+  const p=document.getElementById('password').value.trim();
+  if(u==='love' && p==='2416'){
+    document.getElementById('secretMsg').style.display='block';
+  }else{
+    alert('Wrong username or password ❤️');
+  }
+}
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.textContent = '❤️';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}, 800);
+
+// Pause other videos when one plays
+const videos = document.querySelectorAll('video');
+videos.forEach(v => {
+  v.addEventListener('play', () => {
+    videos.forEach(other => {
+      if (other !== v) other.pause();
+    });
+  });
+});
+</script></body>
+</html>
