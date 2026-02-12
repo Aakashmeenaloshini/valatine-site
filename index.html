@@ -1,4 +1,4 @@
- <!-- ================= INDEX.HTML ================= --><!DOCTYPE html><html lang="en">
+<!-- ================= INDEX.HTML ================= --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,13 +29,50 @@
     <p>Growing stronger together every day.</p>
   </div>
 </section><section class="gallery">
-  <h2>Memories</h2>
-  <div class="slider">
-    <img src="photo1.jpg" class="slide active" />
-    <img src="photo2.jpg" class="slide active" />
-    <img src="photo3.jpg" class="slide active" />
+  <h2>Memories ❤️</h2>
+  <div class="memory-layout">
+    <div class="memory-text">
+      <p>These are some of my favorite moments with you. Scroll the photos on the right →</p>
+    </div><div class="memory-scroll">
+  <img src="photo1.jpg" />
+  <img src="photo2.jpg" />
+  <img src="photo3.jpg" />
+</div>
+
   </div>
-</section><section class="canva-embed">
+</section><style>
+.memory-layout{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+.memory-text{
+  flex:1;
+  padding:10px;
+}
+
+.memory-scroll{
+  flex:1;
+  max-height:420px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  padding-right:6px;
+}
+
+.memory-scroll img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+  .memory-layout{flex-direction:column}
+  .memory-scroll{max-height:none}
+}
+</style><section class="canva-embed">
   <h2>Something I Made For You ❤️</h2>
   <iframe
     src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
@@ -43,5 +80,49 @@
   </iframe>
 </section><footer>
   Made with ❤️ just for you
-</footer>
- 
+</footer><script src="/* ================= SCRIPT.JS ================= */
+
+// Wait until page fully loads
+window.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== Theme Toggle ===== */
+  const toggleBtn = document.getElementById("themeToggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  }
+
+  /* ===== Photo Slider ===== */
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
+
+  function showSlides() {
+    slides.forEach(s => s.classList.remove("active"));
+    if (slides.length > 0) {
+      slides[index].classList.add("active");
+      index = (index + 1) % slides.length;
+    }
+  }
+
+  if (slides.length > 0) {
+    showSlides();
+    setInterval(showSlides, 3000);
+  }
+
+  /* ===== Floating Hearts Animation ===== */
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 800);
+
+});
