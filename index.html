@@ -1,9 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Story ❤️</title><style>
-/* GLOBAL FIX */
+<title>Our Story ❤️</title>
+
+<style>
 html, body {
   margin: 0;
   padding: 0;
@@ -19,7 +21,7 @@ body.dark {
   color: #eee;
 }
 
-/* HERO FIXED */
+/* HERO */
 .hero {
   position: relative;
   height: 100vh;
@@ -48,6 +50,7 @@ body.dark {
   z-index: 1;
 }
 
+/* THEME BUTTON */
 #themeToggle {
   position: fixed;
   top: 15px;
@@ -60,6 +63,7 @@ body.dark {
   z-index: 10000;
 }
 
+/* LOVE NOTE */
 .love-note{
   max-width:900px;
   margin:40px auto;
@@ -71,14 +75,10 @@ body.dark {
   line-height:1.6;
   text-align:center;
 }
+body.dark .love-note{ background:#1b1b1b; }
 
-body.dark .love-note{
-  background:#1b1b1b;
-}
-
-.gallery {
-  padding: 40px 20px;
-}
+/* GALLERY */
+.gallery { padding: 40px 20px; }
 
 .memory-horizontal {
   display: flex;
@@ -101,7 +101,7 @@ body.dark .love-note{
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* SECRET LOGIN BOX */
+/* SECRET BOX */
 .secret-box{
   max-width:420px;
   margin:50px auto;
@@ -111,8 +111,7 @@ body.dark .love-note{
   box-shadow:0 10px 25px rgba(0,0,0,0.12);
   text-align:center;
 }
-
-body.dark .secret-box{background:#1b1b1b;}
+body.dark .secret-box{ background:#1b1b1b; }
 
 .secret-box input{
   width:100%;
@@ -134,39 +133,40 @@ body.dark .secret-box{background:#1b1b1b;}
 .hidden-message{
   display:none;
   margin-top:20px;
+  animation: fadeIn 1s ease forwards;
 }
 
-.hidden-message img{
-  width:100%;
-  border-radius:14px;
-  margin-top:10px;
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.canva-embed-full {
-  padding: 0;
-  margin: 0;
+/* INSTAGRAM */
+.instagram-link{
+  text-align:center;
+  padding:40px 20px;
 }
-
-.canva-full {
-  width: 100%;
-  height: 100vh;
-  border: none;
-  display: block;
+.instagram-link a{
+  display:inline-block;
+  padding:14px 28px;
+  background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-size:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  transition:0.3s;
 }
+.instagram-link a:hover{ transform:scale(1.05); }
 
-.video-memory video {
-  width: 85vw;
-  max-height: 85vh;
-  border-radius: 16px;
-  flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
+/* CANVA */
+.canva-embed-full { padding:0; margin:0; }
+.canva-full { width:100%; height:100vh; border:none; display:block; }
 
-footer {
-  text-align: center;
-  padding: 30px;
-}
+/* FOOTER */
+footer { text-align:center; padding:30px; }
 
+/* HEARTS */
 .heart {
   position: fixed;
   bottom: -30px;
@@ -176,7 +176,6 @@ footer {
   z-index: 9999;
   pointer-events: none;
 }
-
 @keyframes floatUp {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-110vh); opacity: 0; }
@@ -185,87 +184,125 @@ footer {
 @media (max-width: 768px) {
   .hero { height: 70vh; }
 }
-</style></head><body class="dark">
-<button id="themeToggle">☀️</button><header class="hero">
+</style>
+</head>
+
+<body class="dark">
+
+<button id="themeToggle">☀️</button>
+
+<header class="hero">
   <h1>Our Journey ❤️</h1>
   <p>Every moment with you becomes my favorite memory.</p>
-</header><section class="love-note">
+</header>
+
+<section class="love-note">
 <p>
-With you, even the smallest moments feel deeply special ❤️ You fill my life with warmth, happiness, and so much love. Every day with you becomes a memory I truly treasure. I love how our hearts connect, laugh, and dream together. Being with you makes my world feel full, peaceful, and beautiful. 💖
+With you, even the smallest moments feel deeply special ❤️
+You fill my life with warmth, happiness, and so much love.
+Every day with you becomes a memory I truly treasure. 💖
 </p>
-</section><section class="gallery">
-  <h2>Memories ❤️</h2>
-  <div class="memory-horizontal">
-    <img src="photo1.jpg" />
-    <img src="photo2.jpg" />
-    <img src="photo3.jpg" />
-  </div>
-</section><section class="secret-box">
-<h2>Private Memory ❤️</h2>
-<input id="username" placeholder="Username" />
-<input id="password" type="password" placeholder="Password" />
-<button onclick="checkLove()">Unlock</button><div class="hidden-message" id="secretMsg">
-<p>
-No matter where life takes us, you will always be my favorite place. ❤️
-</p>
+</section>
+
+<section class="gallery">
+<h2>Memories ❤️</h2>
 <div class="memory-horizontal">
-  <img src="hidden-memory1.jpg" alt="Private Memory 1" />
-  <img src="hidden-memory2.jpg" alt="Private Memory 2" />
-  <img src="hidden-memory3.jpg" alt="Private Memory 3" />
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
 </div>
+</section>
+
+<section class="video-memory">
+<h2 style="text-align:center;">A Special Moment Just for Us ❤️</h2>
+<div class="memory-horizontal">
+<video id="specialVideo" src="special-video.mp4" controls autoplay muted playsinline></video>
 </div>
-</section><section class="canva-embed-full">
-  <h2 style="text-align:center">Something I Made For You ❤️</h2>
-  <iframe class="canva-full"
-    src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
-    allowfullscreen>
-  </iframe>
-</section><section class="video-memory">
-  <h2 style="padding-left:20px">More Memories ❤️</h2>
-  <div class="memory-horizontal">
-    <video src="memory-video.mp4" controls></video>
-    <video src="video2.mp4" controls></video>
-    <video src="video3.mp4" controls></video>
-  </div>
-</section><footer>
-Made with ❤️ just for you
-</footer><script>
-// Theme toggle
-const toggle = document.getElementById('themeToggle');
-toggle.onclick = () => {
-  document.body.classList.toggle('dark');
-  toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+</section>
+
+<section class="secret-box">
+<h2>Private Memory ❤️</h2>
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button onclick="checkLove()">Unlock</button>
+
+<div class="hidden-message" id="secretMsg">
+<p>No matter where life takes us, you will always be my favorite place. ❤️</p>
+
+<div class="memory-horizontal">
+<img src="hidden-memory1.jpg">
+<img src="hidden-memory2.jpg">
+<img src="hidden-memory3.jpg">
+</div>
+
+</div>
+</section>
+
+<section class="canva-embed-full">
+<h2 style="text-align:center">Something I Made For You ❤️</h2>
+<iframe class="canva-full"
+src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
+allowfullscreen></iframe>
+</section>
+
+<section class="instagram-link">
+<h2>Our Instagram Highlights 💖</h2>
+<a href="https://www.instagram.com/stories/highlights/XXXXXXXX/" target="_blank">
+View Our Special Moments ✨
+</a>
+</section>
+
+<section class="video-memory">
+<h2 style="padding-left:20px">More Memories ❤️</h2>
+<div class="memory-horizontal">
+<video src="memory-video.mp4" controls></video>
+<video src="video2.mp4" controls></video>
+<video src="video3.mp4" controls></video>
+</div>
+</section>
+
+<footer>Made with ❤️ just for you</footer>
+
+<script>
+const toggle=document.getElementById('themeToggle');
+toggle.onclick=()=>{
+document.body.classList.toggle('dark');
+toggle.textContent=document.body.classList.contains('dark')?'☀️':'🌙';
 };
 
-// Secret login check
 function checkLove(){
-  const u=document.getElementById('username').value.trim();
-  const p=document.getElementById('password').value.trim();
-  if(u==='love' && p==='2416'){
-    document.getElementById('secretMsg').style.display='block';
-  }else{
-    alert('Wrong username or password ❤️');
-  }
+const u=document.getElementById('username').value.trim();
+const p=document.getElementById('password').value.trim();
+if(u==='love' && p==='2416'){
+document.getElementById('secretMsg').style.display='block';
+}else{
+alert('Wrong username or password ❤️');
+}
 }
 
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.textContent = '❤️';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 4000);
-}, 800);
+setInterval(()=>{
+const heart=document.createElement('div');
+heart.className='heart';
+heart.style.left=Math.random()*100+'vw';
+heart.textContent='❤️';
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+},800);
 
-// Pause other videos when one plays
-const videos = document.querySelectorAll('video');
-videos.forEach(v => {
-  v.addEventListener('play', () => {
-    videos.forEach(other => {
-      if (other !== v) other.pause();
-    });
-  });
+const specialVideo=document.getElementById('specialVideo');
+
+document.addEventListener('click',()=>{
+specialVideo.muted=false;
+},{once:true});
+
+document.querySelectorAll('video').forEach(video=>{
+if(video!==specialVideo){
+video.addEventListener('play',()=>specialVideo.pause());
+video.addEventListener('ended',()=>setTimeout(()=>specialVideo.play(),300));
+video.addEventListener('pause',()=>setTimeout(()=>specialVideo.play(),300));
+}
 });
-</script></body>
+</script>
+
+</body>
 </html>
