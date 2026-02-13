@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Story ❤️</title>
+<title>Our site ❤️</title>
 
 <style>
 html, body {
@@ -88,11 +88,13 @@ body.dark .love-note{ background:#1b1b1b; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  justify-content: flex-start;
 }
 
 .memory-horizontal img,
 .memory-horizontal video {
-  width: 85vw;
+  width: 90%;
+  max-width: 700px;
   max-height: 85vh;
   object-fit: cover;
   border-radius: 16px;
@@ -159,9 +161,40 @@ body.dark .secret-box{ background:#1b1b1b; }
 }
 .instagram-link a:hover{ transform:scale(1.05); }
 
+/* EXTRA IMAGE */
+.extra-image{
+  text-align:center;
+  padding:30px 20px;
+}
+.extra-image img{
+  max-width:900px;
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
 /* CANVA */
-.canva-embed-full { padding:0; margin:0; }
-.canva-full { width:100%; height:100vh; border:none; display:block; }
+.canva-embed-full {
+  padding: 60px 20px;
+  text-align: center;
+}
+.canva-full {
+  width: 100%;
+  max-width: 900px;
+  height: 80vh;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  display: block;
+  margin: 30px auto 0 auto;
+}
+@media (max-width: 768px) {
+  .hero { height: 70vh; }
+  .canva-full { height: 70vh; }
+}
+@media (min-width: 1024px) {
+  .canva-full { height: 85vh; }
+}
 
 /* FOOTER */
 footer { text-align:center; padding:30px; }
@@ -180,19 +213,15 @@ footer { text-align:center; padding:30px; }
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-110vh); opacity: 0; }
 }
-
-@media (max-width: 768px) {
-  .hero { height: 70vh; }
-}
 </style>
 </head>
 
-<body class="dark">
+<body class="light">
 
 <button id="themeToggle">☀️</button>
 
 <header class="hero">
-  <h1>Our Journey ❤️</h1>
+  <h1> Our Memories of love🖤</h1>
   <p>Every moment with you becomes my favorite memory.</p>
 </header>
 
@@ -205,7 +234,7 @@ Every day with you becomes a memory I truly treasure. 💖
 </section>
 
 <section class="gallery">
-<h2>Memories ❤️</h2>
+<h2>Forever Need🖤</h2>
 <div class="memory-horizontal">
 <img src="photo1.jpg">
 <img src="photo2.jpg">
@@ -214,7 +243,7 @@ Every day with you becomes a memory I truly treasure. 💖
 </section>
 
 <section class="video-memory">
-<h2 style="text-align:center;">A Special Moment Just for Us ❤️</h2>
+<h2 style="text-align:center;"> Until the end🖤</h2>
 <div class="memory-horizontal">
 <video id="specialVideo" src="special-video.mp4" controls autoplay muted playsinline></video>
 </div>
@@ -238,6 +267,17 @@ Every day with you becomes a memory I truly treasure. 💖
 </div>
 </section>
 
+<section class="instagram-link">
+<h2> Highlights You 💖</h2>
+<a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDgzMDkwNDY3OTgzMjA4?story_media_id=3594785584256167347_14166549609&igsh=NWpsZWN0cHBmdjIy" target="_blank">
+View my love here ✨
+</a>
+</section>
+
+<section class="extra-image">
+  <img src="photo4.jpg" alt="">
+</section>
+
 <section class="canva-embed-full">
 <h2 style="text-align:center">Something I Made For You ❤️</h2>
 <iframe class="canva-full"
@@ -245,19 +285,16 @@ src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
 allowfullscreen></iframe>
 </section>
 
-<section class="instagram-link">
-<h2>Our Instagram Highlights 💖</h2>
-<a href="https://www.instagram.com/stories/highlights/XXXXXXXX/" target="_blank">
-View Our Special Moments ✨
-</a>
-</section>
-
 <section class="video-memory">
-<h2 style="padding-left:20px">More Memories ❤️</h2>
+<h2 style="padding-left:20px"> Always special🖤🕊️</h2>
 <div class="memory-horizontal">
 <video src="memory-video.mp4" controls></video>
+<img src="your-new-image.jpg">
 <video src="video2.mp4" controls></video>
+<img src="photo7.jpg">
 <video src="video3.mp4" controls></video>
+<img src="photo6.jpg">
+<video src="video4.mp4" controls></video>
 </div>
 </section>
 
@@ -273,7 +310,7 @@ toggle.textContent=document.body.classList.contains('dark')?'☀️':'🌙';
 function checkLove(){
 const u=document.getElementById('username').value.trim();
 const p=document.getElementById('password').value.trim();
-if(u==='love' && p==='2416'){
+if(u==='Love' && p==='2416'){
 document.getElementById('secretMsg').style.display='block';
 }else{
 alert('Wrong username or password ❤️');
@@ -289,18 +326,13 @@ document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),4000);
 },800);
 
-const specialVideo=document.getElementById('specialVideo');
-
-document.addEventListener('click',()=>{
-specialVideo.muted=false;
-},{once:true});
-
-document.querySelectorAll('video').forEach(video=>{
-if(video!==specialVideo){
-video.addEventListener('play',()=>specialVideo.pause());
-video.addEventListener('ended',()=>setTimeout(()=>specialVideo.play(),300));
-video.addEventListener('pause',()=>setTimeout(()=>specialVideo.play(),300));
-}
+const allVideos = document.querySelectorAll("video");
+allVideos.forEach(video => {
+  video.addEventListener("play", () => {
+    allVideos.forEach(v => {
+      if (v !== video) v.pause();
+    });
+  });
 });
 </script>
 
