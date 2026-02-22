@@ -21,6 +21,29 @@ body.dark {
   color: #eee;
 }
 
+/* 🔒 LOCKED EFFECT */
+.locked {
+  position: relative;
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.locked::after {
+  content: "🔒 Unlock Private Memory To View";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 18px;
+  z-index: 5;
+  text-align: center;
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -266,7 +289,6 @@ Every day with you becomes a memory I truly treasure. 💖
 <video src="Video7.mp4" controls></video>
 <img src="hidden-memory3.jpg">
 </div>
-
 </div>
 </section>
 
@@ -281,13 +303,13 @@ View my love here ✨
   <img src="photo4.jpg" alt="">
 </section>
 
-<section class="canva-embed-full">
+<!-- 🔒 LOCKED CANVA -->
+<section class="canva-embed-full locked" id="lockedCanva">
 <h2 style="text-align:center">Something I Made For You ❤️</h2>
 <iframe class="canva-full"
 src="https://www.canva.com/design/DAHBE0O5T0w/cSuFE3lyhZcnuSxFOG0w5w/view?embed"
 allowfullscreen></iframe>
 </section>
-  
 
 <section style="text-align:center; padding:40px 20px;">
   <h2>Click the Image🎶</h2>
@@ -298,14 +320,15 @@ allowfullscreen></iframe>
   </a>
 </section>
 
-<section class="video-memory">
+<!-- 🔒 LOCKED VIDEOS -->
+<section class="video-memory locked" id="lockedVideos">
 <h2 style="padding-left:20px"> Always special🖤🕊️</h2>
 <div class="memory-horizontal">
-<video src="memory-vide.mp4" controls></video>
+<video src="memory-video.mp4" controls></video>
 <img src="your-new-image.jpg">
-<video src="vide2.mp4" controls></video>
+<video src="video2.mp4" controls></video>
 <img src="photo7.jpg">
-<video src="vide3.mp4" controls></video>
+<video src="video3.mp4" controls></video>
 <img src="photo6.jpg">
 <video src="video4.mp4" controls></video>
 </div>
@@ -325,6 +348,8 @@ const u=document.getElementById('username').value.trim();
 const p=document.getElementById('password').value.trim();
 if(u==='Love' && p==='2416'){
 document.getElementById('secretMsg').style.display='block';
+document.getElementById('lockedVideos').classList.remove('locked');
+document.getElementById('lockedCanva').classList.remove('locked');
 }else{
 alert('Wrong username or password ❤️');
 }
